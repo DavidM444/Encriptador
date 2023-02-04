@@ -1,0 +1,2 @@
+# Encriptador
+Encrypt Soft
