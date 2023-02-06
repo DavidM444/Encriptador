@@ -1,2 +1,3 @@
 # Encriptador
-Encrypt Soft
+Encrypt Text
+Practical programming exercise
