@@ -80,3 +80,8 @@ clear.addEventListener("click", event =>{
     textEncrypt.value = "",
     textResul.value = ""
 })
+var myImage = document.getElementById("logo");
+
+setInterval(function () {
+  myImage.style.animation = "rotation 4s infinite linear";
+}, 40000);
