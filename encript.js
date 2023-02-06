@@ -1,39 +1,82 @@
-var myImage = document.getElementById("logo");
+//* Select elments from html
+const textEncrypt = document.querySelector("#t1");
+const textResul = document.querySelector("#t2");
+const encryptBtn = document.querySelector("#button1");
+const decryptBtn = document.querySelector("#button2"); 
+const copyBtn = document.querySelector("#button3"); 
 
-setInterval(function () {
-  myImage.style.animation = "rotation 3s infinite linear";
-}, 20000);
+const encryptMessage = txt => {
+  //* Function encrypt
+    switch (txt) {
+        case 'a':
+          return 'ia';
+        case 'e':
+          return 'enter';
+        case 'i':
+          return 'imes';
+        case 'o':
+          return 'ober';
+        case 'u':
+          return 'ufat';
+        default:
+          return txt;
+    }
+};
 
+const encriptar = txt => {
+    const messageEncrypt = txt.replace(/a|e|i|o|u/g, encryptMessage); 
+    return messageEncrypt;
+};
 
+const decryptMessage = txt => {
+    switch (txt) {
+        case 'ia':
+        return 'a';
+        case 'enter':
+        return 'e';
+        case 'imes':
+        return 'i';
+        case 'ober':
+        return 'o';
+        case 'ufat':
+        return 'u';
+        default:
+        return txt;
+    }
+};
 
+const desencriptar = txt => {
+    const messageDecrypt = txt.replace(/ia|enter|imes|ober|ufat/g, decryptMessage);
+    return messageDecrypt;
+};
 
-/*
-const crypto = require('crypto');
-const algorithm = 'aes-256-cbc';
-const key = crypto.randomBytes(32);
-const iv = crypto.randomBytes(16);
+encryptBtn.addEventListener("click", event => {
+    event.preventDefault();
+    const txt = textEncrypt.value;
+    console.log(txt)
+    textResul.value = ""; 
+    const messageSafe = encriptar(txt);
+    console.log(messageSafe)
+    textResul.value = messageSafe;
+});
 
-function encrypt(text) {
-  let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
-  let encrypted = cipher.update(text);
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-  return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
-}
+decryptBtn.addEventListener("click", event => {
+    event.preventDefault();
+    const txt = textEncrypt.value;
+    textResul.value = "";
+    const messageSafe = desencriptar(txt);
+    console.log(txt,messageSafe)
+    textResul.value = messageSafe;
+});
 
-function decrypt(text) {
-  let iv = Buffer.from(text.iv, 'hex');
-  let encryptedText = Buffer.from(text.encryptedData, 'hex');
-  let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
-  let decrypted = decipher.update(encryptedText);
-  decrypted = Buffer.concat([decrypted, decipher.final()]);
-  return decrypted.toString();
-}
+copyBtn.addEventListener("click", event => {
+    event.preventDefault();
+    textResul.select();
+    navigator.clipboard.writeText(textResul.value);
+});
 
-let text = "Texto a ser encriptado";
-let encryptedText = encrypt(text);
-let decryptedText = decrypt(encryptedText);
-
-console.log(encryptedText);
-console.log(decryptedText);
-console.log("finishe code")
-*/
+clear.addEventListener("click", event =>{
+    event.preventDefault();
+    textEncrypt.value = "",
+    textResul.value = ""
+})
