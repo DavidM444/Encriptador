@@ -8,7 +8,7 @@ body{
     font-family: 'Caveat', cursive;
 }
 header{
-    height: 9vh;
+    background-color: hsl(0, 0%, 100%);
 }
 header img{
     height: 14vh;
@@ -20,29 +20,20 @@ header img{
 }
 
 header h1{
-    color: #8fc5f4;
-    margin-top: -80px;
+    color: #043056;
     text-align: center;
-
-    
-   
-
-    
-}
-header h2{
-    color: red;
-    margin: 3% 3%;
-    text-align:center;
+    margin-top: -15vh;
+    font-weight: 900;
 }
 
-svg{
-    height: 10%;
+header svg{
+    margin-top: -12vh;
 }
 
 
 main{
     background-color: #8fc5f4;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     position: relative;
     margin-top: -1%;
@@ -50,9 +41,9 @@ main{
 }
 section{
     margin: auto;
-    margin-top: 3%;
+    margin-top: 2%;
     margin-left: 7%;
-    height: 60%;
+    height: 65%;
     width: 45%;
     
 
@@ -64,20 +55,29 @@ textarea {
     border:5px solid rgb(234, 234, 234);
     border-radius: 20px ;
     resize: none;
+    background: #FCFFE7;
+    font:normal bold 24px/1 "Caveat", cursive;
 }
 
 button {
     background:    #15d798;
-    border-radius: 11px;
+    border-radius: 1000px;
     padding:       15px 45px;
     color:         #ffffff;
     display:       inline-block;
     font:          normal bold 20px/1 "Open Sans", sans-serif;
     text-align:    center;
 }
+#clear:hover{
+    background: red;
+}
+button:hover{
+    background: #114aa1;
+    color: #ffffff;
+}
 
 footer{
-    height: 0vh;
+    height: auto;
     text-align: center;
     margin-top: -20vh;
 }
@@ -97,7 +97,7 @@ p{
       transform: rotate(0deg);
     }
     to {
-      transform: rotate(300deg);
+      transform: rotate(360deg);
     }
   }
   
